@@ -79,7 +79,7 @@
           untuk penanganan yang lebih cepat dan transparan.
         </p>
         <a href="#" class="btn btn-danger btn-lg fw-bold">
-          <i class="bi-megaphone-fill me-2"></i>LAPOR!
+          <i class="bi-megaphone-fill me-2" href="#blog"></i>LAPOR!
         </a>
       </div>
     </header>
@@ -122,21 +122,52 @@
               <img
                 src="https://pid.kepri.polri.go.id/wp-content/uploads/2024/04/Laporan-POlisi-1.jpg"
                 class="img-fluid rounded"
-                alt="Tim sedang berdiskusi"
+                alt="Tim sedang berdiskusi"
               />
             </div>
             <div class="col-lg-6 mt-4 mt-lg-0">
               <h3>Mengapa Harus Kami?</h3>
               <p>
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-                voluptatem eaque delectus quas non beatae amet iure aut
-                accusamus animi veritatis voluptate sed nobis debitis
-                blanditiis, autem consectetur facere maiores quis aperiam, alias
-                fugit sit commodi. Eveniet, quae. Cumque totam sequi rem,
-                praesentium beatae vero similique nemo repellendus nostrum
-                voluptatibus!
+                voluptatem eaque delectus quas non beatae amet iure aut accusamus animi
+                veritatis voluptate sed nobis debitis blanditiis, autem consectetur
+                facere maiores quis aperiam, alias fugit sit commodi. Eveniet, quae.
+                Cumque totam sequi rem, praesentium beatae vero similique nemo
+                repellendus nostrum voluptatibus!
               </p>
-              <a href="about.html" class="btn btn-primary">Selengkapnya </a>
+
+              <!-- Tombol untuk menampilkan form -->
+              <button class="btn btn-danger" id="btnLapor">Lapor Sekarang</button>
+            </div>
+          </div>
+
+          <!-- Form laporan (disembunyikan dulu) -->
+          <div id="formLapor" class="mt-5 d-none">
+            <div class="card shadow p-4 border-0">
+              <h4 class="text-danger mb-3">Form Laporan Masyarakat</h4>
+              <form>
+                <div class="mb-3">
+                  <label for="nama" class="form-label">Nama Lengkap</label>
+                  <input type="text" class="form-control" id="nama" placeholder="Masukkan nama Anda">
+                </div>
+
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email (opsional)</label>
+                  <input type="email" class="form-control" id="email" placeholder="Masukkan email Anda">
+                </div>
+
+                <div class="mb-3">
+                  <label for="laporan" class="form-label">Isi Laporan</label>
+                  <textarea class="form-control" id="laporan" rows="3" placeholder="Tuliskan laporan Anda di sini..."></textarea>
+                </div>
+
+                <div class="mb-3">
+                  <label for="foto" class="form-label">Unggah Foto (opsional)</label>
+                  <input class="form-control" type="file" id="foto" accept="image/*">
+                </div>
+
+                <button type="submit" class="btn btn-danger">Kirim Laporan</button>
+              </form>
             </div>
           </div>
         </div>
@@ -275,6 +306,27 @@
       crossorigin="anonymous"
     ></script>
 
+    
+          <!-- Script untuk menampilkan/menyembunyikan form -->
+      <script>
+        document.addEventListener("DOMContentLoaded", function () {
+          const btn = document.getElementById("btnLapor");
+          const form = document.getElementById("formLapor");
+
+          btn.addEventListener("click", function () {
+            if (form.classList.contains("d-none")) {
+              form.classList.remove("d-none");
+              this.textContent = "Tutup Form";
+            } else {
+              form.classList.add("d-none");
+              this.textContent = "Lapor Sekarang";
+            }
+          });
+        });
+      </script>
+
+
+
     <!-- script JS form -->
       <script>
       const submitBtn = document.querySelector('#submitBtn');
@@ -352,5 +404,6 @@
         }
       });
     </script>
+
   </body>
 </html>
